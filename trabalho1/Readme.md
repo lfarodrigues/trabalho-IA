@@ -5,7 +5,7 @@ Parâmetros
 * b = 0
 * w = 0
 * alpha = 0.01
-* num_iterations = 100
+* num_iterations = 1000
 
 * Erro quadrático médio final = 8.529433040552066
 

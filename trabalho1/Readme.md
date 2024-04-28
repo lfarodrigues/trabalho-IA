@@ -1,4 +1,4 @@
-Alunos: Luis Filipe Antunes Rodrigues(00314848)
+Alunos: Luis Filipe Antunes Rodrigues(00314848), Tiago Elias Steinke(171884)
 
 Regressão Linear - Dataset Alegrete
 Parâmetros 

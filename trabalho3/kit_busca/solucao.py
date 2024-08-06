@@ -24,17 +24,17 @@ class Nodo:
         print('{ NODO: \'estado\' = \'' + self.estado + '\', \'pai\' = \'' + ('None' if self.pai == None else self.pai.estado) + '\', \'acao\' = \'' + self.acao + '\' }' )
 
 @dataclass(order=True)
-class NodoHeuristica:
+class NodoComPrioridade:
     priority: int
     item: Nodo=field(compare=False)
 
-class AstarPriorityQueue(queue.PriorityQueue):
+class MyPriorityQueue(queue.PriorityQueue):
     def __init__(self, heuristica):
         super().__init__()
         self.heuristica = heuristica
 
     def put(self, val):
-        super().put(NodoHeuristica(priority=self.heuristica(val.estado) + val.custo, item = val))
+        super().put(NodoComPrioridade(priority=self.heuristica(val.estado) + val.custo, item = val))
 
     def get(self):
         return super().get().item
@@ -165,7 +165,7 @@ def astar_hamming(estado:str)->list[str]:
     :param estado: str
     :return:
     """
-    return busca_grafo(estado, lambda: AstarPriorityQueue(hamming_distance))
+    return busca_grafo(estado, lambda: MyPriorityQueue(hamming_distance))
 
 def astar_manhattan(estado:str)->list[str]:
     """
@@ -176,7 +176,7 @@ def astar_manhattan(estado:str)->list[str]:
     :param estado: str
     :return:
     """
-    return busca_grafo(estado, lambda: AstarPriorityQueue(manhattan_distance))
+    return busca_grafo(estado, lambda: MyPriorityQueue(manhattan_distance))
 
 #opcional,extra
 def bfs(estado:str)->list[str]:

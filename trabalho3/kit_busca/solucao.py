@@ -117,16 +117,19 @@ def busca_grafo(s, objetivo):
     F = objetivo()
     F.put(Nodo(s, None, None, 0))
 
+    nos_expandidos = 0
     while not F.empty():
         V = F.get()
-        if estado_objetivo(V.estado): 
+        nos_expandidos+=1
+        if estado_objetivo(V.estado):
+            #print("nos expandidos: " + str(nos_expandidos)) 
             return lista_acoes(V)
         if V.estado not in X:
             X.add(V.estado)
             fronteira_V = expande(V)        
             for nodo in fronteira_V:
                 F.put(nodo)
-    
+
     return None
 
 def estado_objetivo(estado):
@@ -238,3 +241,5 @@ def manhattan_distance(estado):
         distancia += abs(linha - valor[0]) + abs(coluna - valor[1])
     
     return distancia
+
+bfs("2_3541687")

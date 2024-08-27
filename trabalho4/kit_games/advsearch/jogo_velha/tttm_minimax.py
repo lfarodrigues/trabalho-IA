@@ -59,7 +59,7 @@ def melhor_jogada(tabuleiro):
     print("Jogadas válidas:",jogadas_validas(tabuleiro))
     simbolo_jogador='B'
 
-    def minimax(tab, profundidade, alfa, beta, maximizando, simbolo_jogador):
+    def minimax(tab, profundidade, alfa, beta, maximizando):
         oponente = 'W'
         simbolo_jogador = 'B'
 
@@ -76,7 +76,7 @@ def melhor_jogada(tabuleiro):
             max_eval = -float('inf')
             for linha, coluna in jogadas_validas(tab):
                 tab[linha][coluna] = simbolo_jogador
-                eval = minimax(tab, profundidade + 1, alfa, beta, False, simbolo_jogador)
+                eval = minimax(tab, profundidade + 1, alfa, beta, False)
                 tab[linha][coluna] = '.'
                 max_eval = max(max_eval, eval)
                 alfa = max(alfa, eval)
@@ -87,7 +87,7 @@ def melhor_jogada(tabuleiro):
             min_eval = float('inf')
             for linha, coluna in jogadas_validas(tab):
                 tab[linha][coluna] = oponente
-                eval = minimax(tab, profundidade + 1, alfa, beta, True, simbolo_jogador)
+                eval = minimax(tab, profundidade + 1, alfa, beta, True)
                 tab[linha][coluna] = '.'
                 min_eval = min(min_eval, eval)
                 beta = min(beta, eval)
@@ -97,9 +97,9 @@ def melhor_jogada(tabuleiro):
 
     melhor_valor = -float('inf')
     melhor_movimento = None
-    for linha, coluna in jogadas_validas(tabuleiro):
+    for coluna, linha in jogadas_validas(tabuleiro):
         tabuleiro[linha][coluna] = simbolo_jogador
-        movimento_valor = minimax(tabuleiro, 0, -float('inf'), float('inf'), False, simbolo_jogador)
+        movimento_valor = minimax(tabuleiro, 0, -float('inf'), float('inf'), False)
         tabuleiro[linha][coluna] = '.'
         if movimento_valor > melhor_valor:
             melhor_valor = movimento_valor
@@ -126,12 +126,5 @@ def verifica_vencedor(tab):
             return linha[0]
     return None
 
-# Exemplo de uso
-# tabuleiro_exemplo = [
-#     ['B', 'W', 'B'],
-#     ['W', 'B', '.'],
-#     ['.', '.', 'W']
-# ]
-# simbolo_jogador = 'W'
-# print(melhor_jogada(tabuleiro_exemplo, simbolo_jogador))
+
 

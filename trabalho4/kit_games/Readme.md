@@ -99,7 +99,7 @@ Para ver o tabuleiro e as peças com cores, instale a biblioteca `pytermgui` (po
 
 
 
-## Relatório 
+## Relatório jogo velha
 2.2. Avaliação
 a) Para o Tic-Tac-Toe misere, relate se o desempenho da sua implementação do minimax com poda
 alfa-beta: embora não seja simples provar que o jogo está sendo jogado com perfeição, avalie as
@@ -111,4 +111,4 @@ Não, de 10 jogos, 2 vitórias, 3 empates, 5 derrotas.
 Sim, de 10 jogos, todos deu empate.
 
 (iii) O minimax não perde para você, quando você usa a sua melhor estratégia?
-Depois de achar uma sequencia que eu ganho, sempre ganho se seguir a sequencia.
+Depois de achar uma sequência que eu ganho, sempre ganho se seguir mesma sequência.

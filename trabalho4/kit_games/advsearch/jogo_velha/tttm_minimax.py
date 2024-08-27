@@ -24,14 +24,14 @@ def make_move(state: GameState) -> Tuple[int, int]:
     # a sua implementacao da poda alpha-beta. Use profundidade ilimitada na sua entrega,
     # uma vez que o jogo tem profundidade maxima 9. 
     # Preencha a funcao utility com o valor de um estado terminal e passe-a como funcao de avaliação para seu minimax_move
-    legal_moves = list(state.legal_moves())
-    print("\nPermitidos:",legal_moves,"\n")
+    #legal_moves = list(state.legal_moves())
+    #print("\nPermitidos:",legal_moves,"\n")
 
     tabuleiro=state.get_board().board
-    print("tabuleiro:",tabuleiro)
+    #print("tabuleiro:",tabuleiro)
 
     jogada= melhor_jogada(tabuleiro)
-    print("Jogada:",jogada)
+    # print("Jogada:",jogada)
 
     return jogada
 
